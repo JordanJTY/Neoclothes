@@ -1,0 +1,62 @@
+#collection {
+  text-align: center;
+
+  h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.gallery {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #47a7bdac;
+  padding: 20px;
+}
+
+.thumbnails {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.thumbnails img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: cover;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.thumbnails img:hover {
+  opacity: 0.8;
+}
+
+.image-display {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.image-display img {
+  max-width: 100%;
+  max-height: 600px;
+}
+
+/* media queries */
+@media screen and (max-width: 768px) {
+  .thumbnails {
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    /* Reducir el tamaño mínimo de las columnas */
+    grid-template-rows: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .thumbnails img {
+    max-width: 100%;
+    /* Hacer que las imágenes ocupen el ancho disponible */
+    max-height: 150px;
+    /* Establecer una altura máxima para las imágenes */
+  }
+}
