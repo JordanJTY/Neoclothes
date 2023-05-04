@@ -1,11 +1,14 @@
 .footer {
-  bottom: 0;
   background-color: #0360acee;
   z-index: 1;
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
+
+  @media only screen and (max-width: 850px) and (min-width: 760px) {
+    position: sticky;
+  }
 }
 
 ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
