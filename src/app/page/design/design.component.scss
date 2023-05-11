@@ -4,6 +4,17 @@
   align-items: center;
 }
 
+@media only screen and (min-width: 790px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+  }
+
+  .color-palette {
+    display: none;
+  }
+}
+
 h1 {
   margin-top: 1em;
 }
@@ -41,6 +52,20 @@ canvas {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+.color-palette {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.color-option {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 5px;
+  cursor: pointer;
 }
 
 .download-button:hover {

@@ -1,7 +1,20 @@
 <div class="content">
   <h1>¡Diseña tu propia camiseta!</h1>
-  <div class="canvas-container">
-    <canvas id="canvas" #canvas></canvas>
+  <div class="grid">
+    <div class="canvas-container">
+      <canvas id="canvas" #canvas></canvas>
+    </div>
+    <div class="color-palette">
+      <div class="color-option" style="background-color: #000000;" (click)="changeColor('#000000')"></div>
+      <div class="color-option" style="background-color: #FF5733;" (click)="changeColor('#FF5733')"></div>
+      <div class="color-option" style="background-color: #FFC300;" (click)="changeColor('#FFC300')"></div>
+      <div class="color-option" style="background-color: #DAF7A6;" (click)="changeColor('#DAF7A6')"></div>
+      <div class="color-option" style="background-color: #58D68D;" (click)="changeColor('#58D68D')"></div>
+      <div class="color-option" style="background-color: #85C1E9;" (click)="changeColor('#85C1E9')"></div>
+      <div class="color-option" style="background-color: #3498DB;" (click)="changeColor('#3498DB')"></div>
+      <div class="color-option" style="background-color: #9B59B6;" (click)="changeColor('#9B59B6')"></div>
+      <div class="color-option" style="background-color: #E74C3C;" (click)="changeColor('#E74C3C')"></div>
+    </div>
   </div>
   <div class="controls">
     <button class="download-button" (click)="downloadCanvas()">Descargar</button>

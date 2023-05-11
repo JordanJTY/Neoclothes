@@ -9,6 +9,8 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 export class DesignComponent {
   @ViewChild('canvas', { static: true })
   canvas!: ElementRef<HTMLCanvasElement>;
+  private strokes: { x: number, y: number }[][] = [];
+  currentColor: string = '#000'; // el color negro será el valor inicial
 
   private ctx!: CanvasRenderingContext2D;
 
@@ -17,11 +19,16 @@ export class DesignComponent {
   ngOnInit(): void {
     this.ctx = this.canvas.nativeElement.getContext('2d')!;
     const img = new Image();
-    img.src = 'assets/images/plantilla.png';
+    img.src = 'assets/images/plantillawithlogo.png';
     img.onload = () => {
       this.ctx.drawImage(img, 0, 0, this.canvas.nativeElement.width, this.canvas.nativeElement.height);
     };
     this.setupCanvas();
+  }
+
+  changeColor(color: string): void {
+    this.currentColor = color;
+    this.ctx.strokeStyle = color; // actualiza el color del trazo
   }
 
   private setupCanvas(): void {
@@ -61,7 +68,11 @@ export class DesignComponent {
       this.ctx.beginPath();
       this.ctx.moveTo(lastX, lastY);
       this.ctx.lineTo(currentX, currentY);
+      this.ctx.strokeStyle = this.currentColor; // actualiza el color del trazo
       this.ctx.stroke();
+
+      // Almacenamos el trazo actual en el arreglo de strokes
+      this.strokes.push([{ x: lastX, y: lastY }, { x: currentX, y: currentY }]);
 
       lastX = currentX;
       lastY = currentY;
